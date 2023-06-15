@@ -16,6 +16,7 @@
 const std = @import("std");
 
 pub fn main() void {
+    // Longhand method
     // Let's store the bits of binary number 1101 in
     // 'little-endian' order (least significant byte first):
     const bits = [_]u8{ 1, 0, 1, 1 };
@@ -25,7 +26,7 @@ pub fn main() void {
     // the value of the place as a power of two for each bit.
     //
     // See if you can figure out the missing pieces:
-    for (bits, ???) |bit, ???| {
+    for (bits, 0..) |bit, i| {
         // Note that we convert the usize i to a u32 with
         // @intCast(), a builtin function just like @import().
         // We'll learn about these properly in a later exercise.
