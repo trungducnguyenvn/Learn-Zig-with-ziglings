@@ -11,7 +11,8 @@ pub fn main() void {
     const my_numbers = [4]u16{ 5, 6, 7, 8 };
 
     printPowersOfTwo(my_numbers);
-    std.debug.print("\n", .{});
+    var powerOfFive: u32 = twoToThe(5);
+    std.debug.print("Two to the power of five: {}\n", .{powerOfFive});
 }
 
 // You won't see this every day: a function that takes an array with
@@ -21,9 +22,9 @@ pub fn main() void {
 //
 // This function prints, but does not return anything.
 //
-fn printPowersOfTwo(numbers: [4]u16) ??? {
-    loop (numbers) |n| {
-        std.debug.print("{} ", .{twoToThe(n)});
+fn printPowersOfTwo(numbers: [4]u16) void {
+    for (numbers) |n| {
+        std.debug.print("{}\n", .{twoToThe(n)});
     }
 }
 
@@ -31,13 +32,13 @@ fn printPowersOfTwo(numbers: [4]u16) ??? {
 // exercise. But don't be fooled! This one does the math without the aid
 // of the standard library!
 //
-fn twoToThe(number: u16) ??? {
+fn twoToThe(number: u16) u32 {
     var n: u16 = 0;
     var total: u16 = 1;
 
-    loop (n < number) : (n += 1) {
+    while (n < number) : (n += 1) {
         total *= 2;
     }
 
-    return ???;
+    return total;
 }
