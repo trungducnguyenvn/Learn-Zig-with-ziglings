@@ -32,13 +32,14 @@ pub fn main() void {
     const nums = [_]u8{ 2, 3, 4, 5, 6 };
 
     for (nums) |num| {
-        std.debug.print("{}", .{num});
+        std.debug.print("{} ", .{num});
 
         const n = numberMaybeFail(num);
         if (n) |value| {
-            std.debug.print("={}. ", .{value});
+            std.debug.print("= {}\n", .{value});
         } else |err| switch (err) {
-            MyNumberError.TooBig => std.debug.print(">4. ", .{}),
+            MyNumberError.TooBig => std.debug.print("> 4\n", .{}),
+            MyNumberError.TooSmall => std.debug.print("< 4\n", .{})
             // Please add a match for TooSmall here and have it print: "<4. "
         }
     }

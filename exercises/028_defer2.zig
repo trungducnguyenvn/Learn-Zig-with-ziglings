@@ -16,9 +16,10 @@ pub fn main() void {
 // like "(Goat) ", but we somehow need to print the end parenthesis
 // even though this function can return in four different places!
 fn printAnimal(animal: u8) void {
+    {
     std.debug.print("(", .{});
 
-    std.debug.print(") ", .{}); // <---- how?!
+    defer std.debug.print(") ", .{}); // <---- how?!
 
     if (animal == 'g') {
         std.debug.print("Goat", .{});
@@ -34,4 +35,5 @@ fn printAnimal(animal: u8) void {
     }
 
     std.debug.print("Unknown", .{});
+    }
 }
