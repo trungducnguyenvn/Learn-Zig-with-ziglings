@@ -39,6 +39,7 @@ const Duck = struct {
     }
 };
 
+
 const RubberDuck = struct {
     in_bath: bool = false,
     location_x: i32 = 0,
@@ -123,8 +124,8 @@ fn isADuck(possible_duck: anytype) bool {
     // Please make sure MyType has both waddle() and quack()
     // methods:
     const MyType = @TypeOf(possible_duck);
-    const walks_like_duck = ???;
-    const quacks_like_duck = ???;
+    const walks_like_duck = @hasDecl(MyType, "waddle");
+    const quacks_like_duck = @hasDecl(MyType, "quack");
 
     const is_duck = walks_like_duck and quacks_like_duck;
 

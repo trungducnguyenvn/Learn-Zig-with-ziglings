@@ -26,6 +26,7 @@ const Narcissus = struct {
     me: *Narcissus = undefined,
     myself: *Narcissus = undefined,
     echo: void = undefined,
+    trung: *Narcissus = undefined
 };
 
 pub fn main() void {
@@ -40,7 +41,7 @@ pub fn main() void {
 
     const fields = @typeInfo(Narcissus).Struct.fields;
 
-    ??? {
+    inline for (fields) |field| {
         if (field.type != void) {
             print(" {s}", .{field.name});
         }

@@ -26,8 +26,8 @@
 //
 const print = @import("std").debug.print;
 
-const llama_count = 5;
-const llamas = [llama_count]u32{ 5, 10, 15, 20, 25 };
+const llama_count = 6;
+const llamas = [llama_count]u32{1, 5, 10, 15, 20, 25 };
 
 pub fn main() void {
     // We meant to fetch the last llama. Please fix this simple
@@ -37,7 +37,7 @@ pub fn main() void {
     print("My llama value is {}.\n", .{my_llama});
 }
 
-fn getLlama(i: usize) u32 {
+fn getLlama(comptime i: usize) u32 {
     // We've put a guard assert() at the top of this function to
     // prevent mistakes. The 'comptime' keyword here means that
     // the mistake will be caught when we compile!

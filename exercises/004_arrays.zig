@@ -40,7 +40,7 @@ pub fn main() void {
     // (Problem 2)
     // Looks like we need to complete this expression. Use the example
     // above to set "fourth" to the fourth element of the some_primes array:
-    const fourth = some_primes[4];
+    const fourth = some_primes[3];
 
     // (Problem 3)
     // Use the len property to get the length of the array:

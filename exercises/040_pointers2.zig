@@ -23,8 +23,9 @@ const std = @import("std");
 
 pub fn main() void {
     const a: u8 = 12;
-    const b: *const u8 = &a; // fix this!
+    var b: *const u8 = &a; // fix this!
     // const c: *const u8 = undefined;
 
     std.debug.print("a: {}, b: {}\n", .{ a, b.* });
+    std.debug.print("Type of a: {} and b: {}\n", .{@TypeOf(a), @TypeOf(b)});
 }

@@ -30,7 +30,7 @@ const print = @import("std").debug.print;
 
 // Being in the global scope, everything about this value is
 // implicitly required to be known compile time.
-const llama_count = 5;
+const llama_count = 42;
 
 // Again, this value's type and size must be known at compile
 // time, but we're letting the compiler infer both from the
@@ -39,7 +39,7 @@ const llamas = makeLlamas(llama_count);
 
 // And here's the function. Note that the return value type
 // depends on one of the input arguments!
-fn makeLlamas(count: usize) [count]u8 {
+fn makeLlamas(comptime count: usize) [count]u8 {
     var temp: [count]u8 = undefined;
     var i = 0;
 
@@ -52,7 +52,7 @@ fn makeLlamas(count: usize) [count]u8 {
 }
 
 pub fn main() void {
-    print("My llama value is {}.\n", .{llamas[2]});
+    print("My llama value is {}.\n", .{llamas[21]});
 }
 //
 // The lesson here is to not pepper your program with 'comptime'
